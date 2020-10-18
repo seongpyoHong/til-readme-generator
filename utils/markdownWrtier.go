@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -56,7 +57,14 @@ func writeIntro(file *os.File, intro string) {
 }
 
 func writeContent(file *os.File) {
-	for topic := range tilFiles {
+	keys := []string{}
+	for key := range tilFiles {
+		keys = append(keys,key)
+	}
+
+	sort.Strings(keys)
+
+	for _,topic := range keys {
 		_, err := file.WriteString(generateTILTopic(topic))
 		if err != nil {
 			log.Fatal(err)
