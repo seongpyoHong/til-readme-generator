@@ -1,12 +1,3 @@
-### TIL
+### TIL Readme Generator
 
----
-
-Today I Learned
-
-*There are 2 TIL files!*
-
-### utils
-
-- [fileReader](utils/fileReader.go)
-- [markdownWrtier](utils/markdownWrtier.go)
+The Readme Generator for Personal TIL Repository.
