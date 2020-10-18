@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 var (
@@ -68,11 +69,15 @@ func generateTILTopic(topic string) string{
 	topicHeader := fmt.Sprintf("### %s\n\n",topic)
 	topicContent := ""
 	for _,content := range tilFiles[topic] {
-		topicContent += fmt.Sprintf("- [%s](%s)\n",content,content)
+		topicContent += fmt.Sprintf("- [%s](%s)\n",convertToTitle(content),content)
 	}
 	return topicHeader + topicContent
 }
 
+func convertToTitle(path string) string {
+	filename := strings.Split(strings.Split(path,"/")[1],".")[0]
+	return strings.Replace(filename,"_", " ", -1)
+}
 func SetTils(tils map[string][]string) {
 	tilFiles = tils
 	for _,file := range tils {
