@@ -2,7 +2,6 @@ package main
 
 import (
 	"TIL-Helper/utils"
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -20,6 +19,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Println(utils.GetTilFiles())
+	utils.SetTils(utils.GetTilFiles())
+	utils.SetIntroduction("Today I Learned")
+	utils.CreateDocs(utils.GetTilFiles())
 }

@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -17,7 +16,6 @@ func init() {
 
 func AddTilFiles(path string) {
 	if !isSkip(path) {
-		fmt.Println(path)
 		addFiles(path)
 	}
 }
@@ -39,10 +37,6 @@ func addFiles(path string) {
 			tils[dir] = files
 		}
 	}
-}
-
-func GetTils() map[string][]string {
-	return tils
 }
 
 func isSkip(path string) bool{
